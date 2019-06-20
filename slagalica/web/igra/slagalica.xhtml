@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <title>Slagalica</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/template.xhtml">
+            <ui:define name="right_content">
+                <h:form>
+                    <div>
+                        <h1 class="naslovIgre">Slagalica</h1>
+                    </div>
+                    <div class="centralnoPoravnanje">
+                        <p:outputLabel id="ostaloVreme" styleClass="ponudenjaSlova">Preostalo vreme: #{slagalicaController.preostaloVreme}</p:outputLabel>
+                        <h:panelGrid id="panelRec" columns="12" styleClass="slova">
+                            <c:forEach items="#{slagalicaController.slova}" var="slovo" varStatus="loop">
+                                <p:commandButton value="#{slovo}" 
+                                                 disabled="#{!slagalicaController.dozvoljeno[loop.index]}"
+                                                 update="rec,panelRec"
+                                                 action="#{slagalicaController.dodajSlovo(loop.index)}"/>
+                            </c:forEach>
+                        </h:panelGrid>
+                        <p:inputText disabled="true" 
+                                     id="rec" 
+                                     value="#{slagalicaController.unetaRec}"/>
+                        <p:commandButton value="X" 
+                                         update="rec,panelRec"
+                                         action="#{slagalicaController.ukloniSlovo()}"/>
+                        <br/>
+                        <p:commandButton value="Potvrdi reč"
+                                         styleClass="ponudenjaSlova"
+                                         action="#{slagalicaController.potvrdiRec()}"/>
+                        <p:poll interval="1" 
+                                listener="#{slagalicaController.tajmerListener}" 
+                                stop="#{slagalicaController.poslato}"
+                                update="ostaloVreme" />
+                    </div>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

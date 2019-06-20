@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <title>Slagalica - registracija</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="template.xhtml">
+            <ui:define name="right_content">
+                <h:form id="registerForma" enctype="multipart/form-data">
+                    <div>
+                        <h1 class="title">Registracija</h1>
+                    </div>
+                    <div>
+                        <h:panelGrid columns="2" class="formTable">
+                            <p:outputLabel for="registerName">Ime:</p:outputLabel>
+                            <p:inputText id="registerName" 
+                                         value="#{registerController.ime}" 
+                                         validatorMessage="Ime nije uneto."
+                                         autocomplete="off">
+                                <f:validateRequired/>
+                            </p:inputText>
+                            
+                            <p:outputLabel for="registerSurname">Prezime:</p:outputLabel>
+                            <p:inputText id="registerSurname" 
+                                         value="#{registerController.prezime}" 
+                                         validatorMessage="Prezime nije uneto."
+                                         autocomplete="off">
+                                <f:validateRequired/>
+                            </p:inputText>
+                            
+                            <p:outputLabel for="registerEmail">E-mail:</p:outputLabel>
+                            <p:inputText id="registerEmail" 
+                                         autocomplete="off"
+                                         value="#{registerController.email}"
+                                         validatorMessage="Format e-mail adrese nije ispravan.">
+                                <f:validateRegex pattern="^[a-zA-Z0-9.!#$%&amp;’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"/>
+                                <f:validateRequired/>
+                            </p:inputText>
+                            
+                            <p:outputLabel for="registerOccupation">Zanimanje:</p:outputLabel>
+                            <p:inputText id="registerOccupation" value="#{registerController.zanimanje}" autocomplete="off"/>
+                            
+                            <p:outputLabel for="registerUsername">Korisničko ime:</p:outputLabel>
+                            <p:inputText id="registerUsername" 
+                                         value="#{registerController.korisnickoIme}" 
+                                         autocomplete="off"
+                                         validatorMessage="Korisničko ime nije uneto.">
+                                <f:validateRequired/>
+                            </p:inputText>
+                            
+                            <p:outputLabel for="registerPassword">Lozinka:</p:outputLabel>
+                            <p:password id="registerPassword" 
+                                           autocomplete="off"
+                                           value="#{registerController.lozinka}"
+                                           validatorMessage="Lozinka nije uneta ili nije u ispravnom formatu.">
+                                <f:validateRegex pattern="^(?=.*[a-z]{3,})(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&amp;])(?!.*([a-zA-Z0-9])\1{2,})[a-zA-Z0-9]{1}[a-zA-Z0-9!@#$%^&amp;]{7,15}$"/>
+                                <f:validateLength minimum="8" maximum="16"/>
+                                <f:validateRequired/>
+                            </p:password>
+                            
+                            <p:outputLabel for="registerConfirmPassword">Potvrda lozinke:</p:outputLabel>
+                            <p:password id="registerConfirmPassword" 
+                                        autocomplete="off"
+                                        value="#{registerController.lozinkaPotvrda}"
+                                        validatorMessage="Potvrda lozinke nije uneta ili nije u ispravnom formatu.">
+                                <f:validateRegex pattern="^(?=.*[a-z]{3,})(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&amp;])(?!.*([a-zA-Z0-9])\1{2,})[a-zA-Z0-9]{1}[a-zA-Z0-9!@#$%^&amp;]{7,15}$"/>
+                                <f:validateLength minimum="8" maximum="16"/>
+                                <f:validateRequired/>
+                            </p:password>
+                            
+                            <p:outputLabel for="registerSex">Pol:</p:outputLabel>
+                            <p:selectOneRadio value = "#{registerController.pol}" 
+                                              id="registerSex" 
+                                              validatorMessage="Pol nije izabran."> 
+                                <f:selectItem itemValue = "0" itemLabel = "Muški" /> 
+                                <f:selectItem itemValue = "1" itemLabel = "Ženski" />
+                                <f:validateRequired/>
+                            </p:selectOneRadio>
+                            
+                            <p:outputLabel for="registerBirthDate">Datum rođenja:</p:outputLabel>
+                            <p:calendar id="registerBirthDate" 
+                                        autocomplete="off" 
+                                        value="#{registerController.datumRodenja}"
+                                        validatorMessage="Datum rođenja nije izabran.">
+                                <f:validateRequired/>
+                            </p:calendar>
+                            
+                            <p:outputLabel>Slika:</p:outputLabel>
+                            <p:fileUpload value="#{registerController.uploadedFile}" mode="simple" skinSimple="true"/>
+                        </h:panelGrid>
+                    </div>
+                    <div class="loginButton">
+                        <div class="greska">
+                            <p:message for="registerName"/>
+                            <p:message for="registerSurname"/>
+                            <p:message for="registerEmail"/>
+                            <p:message for="registerOccupation"/>
+                            <p:message for="registerUsername"/>
+                            <p:message for="registerPassword"/>
+                            <p:message for="registerConfirmPassword"/>
+                            <p:message for="registerSex"/>
+                            <p:message for="registerBirthDate"/>
+                            <p:outputLabel value="#{registerController.greska}"/>
+                            <p:outputLabel value="#{registerController.status}"/>
+                        </div>
+                        <div>
+                            <p:commandButton value="Региструј се" 
+                                             ajax="false"
+                                             validateClient="true" 
+                                             process="registerForma"
+                                             update=":registerForma"
+                                             action="#{registerController.registruj()}" />
+                        </div>
+                    </div>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

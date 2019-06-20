@@ -1,0 +1,77 @@
+.title
+{
+    margin-bottom: 15px;
+}
+
+.formTable
+{
+    margin: 0px auto;
+    position: relative;
+    text-align: center;
+}
+
+.formTable td
+{
+    text-align: left;
+}
+
+.loginButton
+{
+    margin-top: 15px;
+}
+
+.greska 
+{
+    color: red;
+}
+
+.levoPoravnanje 
+{
+    text-align: left;
+}
+
+.leftSection li
+{
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+.asocijacijaPrvaKolona
+{
+    width: 30%;
+}
+
+.asocijacijaDrugaKolona
+{
+    width: 10%;
+}
+
+.asocijacijaTrecaKolona
+{
+    width: 30%;
+}
+
+.resenjePodgrupe
+{
+    background-color: #c4d2da;
+}
+
+.naslovIgre
+{
+    margin: 15px 0px;
+}
+
+.slova
+{
+    margin: 20px auto
+}
+
+.ponudenjaSlova
+{
+    margin: 15px 0px;
+}
+
+.centralnoPoravnanje
+{
+    text-align: center;
+}

@@ -1,0 +1,229 @@
+html 
+{
+    background-color: #c2dfef;
+    color: #000000;
+    font-family: Verdana, "Verdana CE";
+    font-size: 12px;
+    margin: 0px;
+    padding: 0px;
+}
+
+body 
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+h1 
+{
+    color: #fffff;
+    font-size:  22px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+}
+
+a:link, a:visited {
+  color: #045491;
+  font-weight : bold;
+  text-decoration: none;
+}
+
+a:link:hover, a:visited:hover  {
+  color: #045491;
+  font-weight : bold;
+  text-decoration : underline;
+}
+
+li 
+{
+    margin: 0px;
+    padding: 0px;
+    padding-top: 3px;
+}
+
+.top 
+{
+    background-color: #036fab;
+    color: white;
+    width: 100%;
+}
+
+.topContent 
+{
+    height: 65px;
+    margin: 0px auto;
+    position: relative;
+    width: 60%;
+}
+
+.topContent h1
+{
+    padding-top: 16px;
+}
+
+.topContent a, .topContent a:hover, .topContent a:visited
+{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.topContentRight
+{
+    float: right;
+    position: relative;
+}
+
+.middle
+{
+    background-color: #dddddd;
+    width: 100%;
+}
+
+.middleContent
+{
+    height: 23px;
+    margin: 0px auto;
+    position: relative;
+    text-align: center;
+    width: 60%;
+}
+
+.middleContent li
+{
+    display: inline-block;
+}
+
+.bottom 
+{
+    background-color: #c2dfef;
+    width: 100%;
+}
+
+.bottomContent
+{
+    margin: 0px auto;
+    padding-top: 15px;
+    position: relative;
+    width: 60%;
+}
+
+.score
+{
+    float: left;
+    max-width: 30%;
+    text-align: center;
+    width: 30%;
+}
+
+.userForm
+{
+    float: right;
+    max-width: 60%;
+    text-align: center;
+    width: 60%;
+}
+
+.left {
+    float: left;
+    background-color: #ece3a5;
+    padding: 5px;
+}
+
+.right {
+    float: right;
+    background-color: #ece3a5;
+    padding: 5px;
+    width: 150px;
+}
+
+.pregledZahtevaTabela td
+{
+    width: 20%;
+}
+
+.centrirano table
+{
+    margin: 0px auto;
+}
+
+.slikaSkocko
+{
+    border: 1px solid black;
+    height: 41px;
+    width: 41px;
+}
+
+.skockoTabela td
+{
+    width: 41px;
+}
+
+.skockoSeparator
+{
+    width: 78px;
+}
+
+.zutaSpojnica
+{
+    background-color: yellow;
+    opacity: 1;
+    text-align: center;
+    width: 168px;
+}
+
+.obicnaSpojnica
+{
+    opacity: 1;
+    text-align: center;
+    width: 168px;
+}
+
+.crvenaSpojnica
+{
+    background-color: red;
+    opacity: 1;
+    text-align: center;
+    width: 168px;
+}
+
+.zelenaSpojnica
+{
+    background-color: lawngreen;
+    opacity: 1;
+    text-align: center;
+    width: 168px;
+}
+
+.plavaSpojnica
+{
+    background-color: deepskyblue;
+    opacity: 1;
+    text-align: center;
+    width: 168px;
+}
+
+.prvaKolonaStatistika
+{
+    width: 45px;
+}
+
+.drugaKolonaStatistika
+{
+    width: 250px;
+}
+
+.trecaKolonaStatistika
+{
+    width: 65px;
+}
+
+.red1
+{
+    background: #dddddd;
+}
+
+.red2
+{
+    background: #c2dfef;
+}

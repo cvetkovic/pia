@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 31, 2019 8:26:27 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pia.database.Partija" table="partija" catalog="pia" optimistic-lock="version">
+        <id name="idPartija" type="java.lang.Integer">
+            <column name="IdPartija" />
+            <generator class="identity" />
+        </id>
+        <property name="plaviTakmicar" type="java.lang.Integer">
+            <column name="PlaviTakmicar" />
+        </property>
+        <property name="crveniTakmicar" type="java.lang.Integer">
+            <column name="CrveniTakmicar" />
+        </property>
+        <property name="samostalno" type="byte">
+            <column name="Samostalno" not-null="true" />
+        </property>
+        <property name="datum" type="timestamp">
+            <column name="Datum" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

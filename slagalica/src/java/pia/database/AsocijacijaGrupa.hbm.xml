@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 31, 2019 8:26:27 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pia.database.AsocijacijaGrupa" table="asocijacija_grupa" catalog="pia" optimistic-lock="version">
+        <id name="idGrupa" type="java.lang.Integer">
+            <column name="IdGrupa" />
+            <generator class="identity" />
+        </id>
+        <property name="rec1" type="string">
+            <column name="Rec1" length="45" not-null="true" />
+        </property>
+        <property name="rec2" type="string">
+            <column name="Rec2" length="45" not-null="true" />
+        </property>
+        <property name="rec3" type="string">
+            <column name="Rec3" length="45" not-null="true" />
+        </property>
+        <property name="rec4" type="string">
+            <column name="Rec4" length="45" not-null="true" />
+        </property>
+        <property name="resenjeGrupe" type="string">
+            <column name="ResenjeGrupe" length="200" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,321 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <title>Slagalica - pregled registracionih zahteva</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/template.xhtml">
+            <ui:define name="right_content">
+                <h:form id="igraDana">
+                    <div>
+                        <h1 class="title">Definisanje igre dana</h1>
+                    </div>
+                    <div>
+                        <h:panelGrid columns="2">
+                            <p:outputLabel>Datum:</p:outputLabel>
+                            <p:calendar autocomplete="off" 
+                                        value="#{administratorController.izabraniDatum}"
+                                        required="true"/>
+                            <p:outputLabel>Spojnica:</p:outputLabel>
+                            <p:selectOneMenu value="#{administratorController.izabranaSpojnica}">
+                                <p:ajax listener="#{administratorController.izborSpojniceListener()}" update="ispisSpojnice"/>
+                                <f:selectItem itemLabel="Izaberite..." itemValue="-1" noSelectionOption="true" />
+                                <c:forEach items="#{administratorController.SpisakSpojnica()}" var="spojnica">
+                                    <f:selectItem itemLabel="#{spojnica.idSpojnica}" itemValue="#{spojnica.idSpojnica}"/>
+                                </c:forEach>
+                            </p:selectOneMenu>
+                            <p:outputLabel>Asocijacija:</p:outputLabel>
+                            <p:selectOneMenu value="#{administratorController.izabranaAsocijacija}">
+                                <p:ajax listener="#{administratorController.izborAsocijacijeListener()}" update="ispisAsocijacije"/>
+                                <f:selectItem itemLabel="Izaberite..." itemValue="-1" noSelectionOption="true" />
+                                <c:forEach items="#{administratorController.SpisakAsocijacija()}" var="asocijacija">
+                                    <f:selectItem itemLabel="#{asocijacija.resenjeAsocijacije}" itemValue="#{asocijacija.idAsocijacija}"/>
+                                </c:forEach>
+                            </p:selectOneMenu>
+                        </h:panelGrid>
+                        <h:panelGrid id="ispisSpojnice" columns="2" class="formTable">
+                            <c:forEach items="#{administratorController.spojnice}" var="spojnica">
+                                <p:inputText value="#{spojnica.levaRec}" 
+                                             autocomplete="off"
+                                             disabled="true"
+                                             required="true"/>
+                                <p:inputText value="#{spojnica.desnaRec}" 
+                                             autocomplete="off"
+                                             disabled="true"
+                                             required="true"/>
+                            </c:forEach>
+                        </h:panelGrid>
+                        <h:panelGroup id="ispisAsocijacije">
+                            <c:if test="#{administratorController.izabranaAsocijacija != -1}">
+                                <table>
+                                    <tr>
+                                        <td class="asocijacijaPrvaKolona">
+                                            <p:inputText id="novaAsocijacijaA1" 
+                                                         value="#{administratorController.novaAsocijacijaA1}" 
+                                                         autocomplete="off"
+                                                         disabled="true"
+                                                         required="true">
+                                                <f:validateRegex pattern="^[a-zA-Z]+$"/>
+                                            </p:inputText>
+                                        </td>
+                                        <td class="asocijacijaDrugaKolona">
+                                            <!-- prazno -->
+                                        </td>
+                                        <td class="asocijacijaTrecaKolona">
+                                            <p:inputText id="novaAsocijacijaB1" 
+                                                         value="#{administratorController.novaAsocijacijaB1}" 
+                                                         autocomplete="off"
+                                                         disabled="true"
+                                                         required="true">
+                                                <f:validateRegex pattern="^[a-zA-Z]+$"/>
+                                            </p:inputText>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="asocijacijaPrvaKolona">
+                                            <p:inputText id="novaAsocijacijaA2" 
+                                                         value="#{administratorController.novaAsocijacijaA2}" 
+                                                         autocomplete="off"
+                                                         disabled="true"
+                                                         required="true">
+                                                <f:validateRegex pattern="^[a-zA-Z]+$"/>
+                                            </p:inputText>
+                                        </td>
+                                        <td class="asocijacijaDrugaKolona">
+                                            <!-- prazno -->
+                                        </td>
+                                        <td class="asocijacijaTrecaKolona">
+                                            <p:inputText id="novaAsocijacijaB2" 
+                                                         value="#{administratorController.novaAsocijacijaB2}" 
+                                                         autocomplete="off"
+                                                         disabled="true"
+                                                         required="true">
+                                                <f:validateRegex pattern="^[a-zA-Z]+$"/>
+                                            </p:inputText>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="asocijacijaPrvaKolona">
+                                            <p:inputText id="novaAsocijacijaA3" 
+                                                         value="#{administratorController.novaAsocijacijaA3}" 
+                                                         autocomplete="off"
+                                                         disabled="true"
+                                                         required="true">
+                                                <f:validateRegex pattern="^[a-zA-Z]+$"/>
+                                            </p:inputText>
+                                        </td>
+                                        <td class="asocijacijaDrugaKolona">
+                                            <!-- prazno -->
+                                        </td>
+                                        <td class="asocijacijaTrecaKolona">
+                                            <p:inputText id="novaAsocijacijaB3" 
+                                                         value="#{administratorController.novaAsocijacijaB3}" 
+                                                         autocomplete="off"
+                                                         disabled="true"
+                                                         required="true">
+                                                <f:validateRegex pattern="^[a-zA-Z]+$"/>
+                                            </p:inputText>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="asocijacijaPrvaKolona">
+                                            <p:inputText id="novaAsocijacijaA4" 
+                                                         value="#{administratorController.novaAsocijacijaA4}" 
+                                                         autocomplete="off"
+                                                         disabled="true"
+                                                         required="true">
+                                                <f:validateRegex pattern="^[a-zA-Z]+$"/>
+                                            </p:inputText>
+                                        </td>
+                                        <td class="asocijacijaDrugaKolona">
+                                            <!-- prazno -->
+                                        </td>
+                                        <td class="asocijacijaTrecaKolona">
+                                            <p:inputText id="novaAsocijacijaB4" 
+                                                         value="#{administratorController.novaAsocijacijaB4}" 
+                                                         autocomplete="off"
+                                                         disabled="true"
+                                                         required="true">
+                                                <f:validateRegex pattern="^[a-zA-Z]+$"/>
+                                            </p:inputText>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="asocijacijaPrvaKolona">
+                                            <p:inputText id="novaAsocijacijaAResenje" 
+                                                         styleClass="resenjePodgrupe"
+                                                         value="#{administratorController.novaAsocijacijaAResenje}" 
+                                                         autocomplete="off"
+                                                         disabled="true"
+                                                         required="true">
+                                                <f:validateRegex pattern="^[a-zA-Z]+\s*(,\s*[a-zA-Z]+\s*)*$"/>
+                                            </p:inputText>
+                                        </td>
+                                        <td class="asocijacijaDrugaKolona">
+                                            <!-- prazno -->
+                                        </td>
+                                        <td class="asocijacijaTrecaKolona">
+                                            <p:inputText id="novaAsocijacijaBResenje" 
+                                                         styleClass="resenjePodgrupe"
+                                                         value="#{administratorController.novaAsocijacijaBResenje}" 
+                                                         autocomplete="off"
+                                                         disabled="true"
+                                                         required="true">
+                                                <f:validateRegex pattern="^[a-zA-Z]+\s*(,\s*[a-zA-Z]+\s*)*$"/>
+                                            </p:inputText>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <p:inputText id="novaAsocijacijaKonacnoResenje" 
+                                                         value="#{administratorController.novaAsocijacijaKonacnoResenje}" 
+                                                         autocomplete="off"
+                                                         disabled="true"
+                                                         required="true">
+                                                <f:validateRegex pattern="^[a-zA-Z]+\s*(,\s*[a-zA-Z]+\s*)*$"/>
+                                            </p:inputText>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="asocijacijaPrvaKolona">
+                                            <p:inputText id="novaAsocijacijaCResenje" 
+                                                         styleClass="resenjePodgrupe"
+                                                         value="#{administratorController.novaAsocijacijaCResenje}" 
+                                                         autocomplete="off"
+                                                         disabled="true"
+                                                         required="true">
+                                                <f:validateRegex pattern="^[a-zA-Z]+\s*(,\s*[a-zA-Z]+\s*)*$"/>
+                                            </p:inputText>
+                                        </td>
+                                        <td class="asocijacijaDrugaKolona">
+                                            <!-- prazno -->
+                                        </td>
+                                        <td class="asocijacijaTrecaKolona">
+                                            <p:inputText id="novaAsocijacijaDResenje" 
+                                                         styleClass="resenjePodgrupe"
+                                                         value="#{administratorController.novaAsocijacijaDResenje}" 
+                                                         autocomplete="off"
+                                                         disabled="true"
+                                                         required="true">
+                                                <f:validateRegex pattern="^[a-zA-Z]+\s*(,\s*[a-zA-Z]+\s*)*$"/>
+                                            </p:inputText>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="asocijacijaPrvaKolona">
+                                            <p:inputText id="novaAsocijacijaC1" 
+                                                         value="#{administratorController.novaAsocijacijaC1}" 
+                                                         autocomplete="off"
+                                                         disabled="true"
+                                                         required="true">
+                                                <f:validateRegex pattern="^[a-zA-Z]+$"/>
+                                            </p:inputText>
+                                        </td>
+                                        <td class="asocijacijaDrugaKolona">
+                                            <!-- prazno -->
+                                        </td>
+                                        <td class="asocijacijaTrecaKolona">
+                                            <p:inputText id="novaAsocijacijaD1" 
+                                                         value="#{administratorController.novaAsocijacijaD1}" 
+                                                         autocomplete="off"
+                                                         disabled="true"
+                                                         required="true">
+                                                <f:validateRegex pattern="^[a-zA-Z]+$"/>
+                                            </p:inputText>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="asocijacijaPrvaKolona">
+                                            <p:inputText id="novaAsocijacijaC2" 
+                                                         value="#{administratorController.novaAsocijacijaC2}" 
+                                                         autocomplete="off"
+                                                         disabled="true"
+                                                         required="true">
+                                                <f:validateRegex pattern="^[a-zA-Z]+$"/>
+                                            </p:inputText>
+                                        </td>
+                                        <td class="asocijacijaDrugaKolona">
+                                            <!-- prazno -->
+                                        </td>
+                                        <td class="asocijacijaTrecaKolona">
+                                            <p:inputText id="novaAsocijacijaD2" 
+                                                         value="#{administratorController.novaAsocijacijaD2}" 
+                                                         autocomplete="off"
+                                                         disabled="true"
+                                                         required="true">
+                                                <f:validateRegex pattern="^[a-zA-Z]+$"/>
+                                            </p:inputText>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="asocijacijaPrvaKolona">
+                                            <p:inputText id="novaAsocijacijaC3" 
+                                                         value="#{administratorController.novaAsocijacijaC3}" 
+                                                         autocomplete="off"
+                                                         disabled="true"
+                                                         required="true">
+                                                <f:validateRegex pattern="^[a-zA-Z]+$"/>
+                                            </p:inputText>
+                                        </td>
+                                        <td class="asocijacijaDrugaKolona">
+                                            <!-- prazno -->
+                                        </td>
+                                        <td class="asocijacijaTrecaKolona">
+                                            <p:inputText id="novaAsocijacijaD3" 
+                                                         value="#{administratorController.novaAsocijacijaD3}" 
+                                                         autocomplete="off"
+                                                         disabled="true"
+                                                         required="true">
+                                                <f:validateRegex pattern="^[a-zA-Z]+$"/>
+                                            </p:inputText>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="asocijacijaPrvaKolona">
+                                            <p:inputText id="novaAsocijacijaC4" 
+                                                         value="#{administratorController.novaAsocijacijaC4}" 
+                                                         autocomplete="off"
+                                                         disabled="true"
+                                                         required="true">
+                                                <f:validateRegex pattern="^[a-zA-Z]+$"/>
+                                            </p:inputText>
+                                        </td>
+                                        <td class="asocijacijaDrugaKolona">
+                                            <!-- prazno -->
+                                        </td>
+                                        <td class="asocijacijaTrecaKolona">
+                                            <p:inputText id="novaAsocijacijaD4" 
+                                                         value="#{administratorController.novaAsocijacijaD4}" 
+                                                         autocomplete="off"
+                                                         disabled="true"
+                                                         required="true">
+                                                <f:validateRegex pattern="^[a-zA-Z]+$"/>
+                                            </p:inputText>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </c:if>
+                        </h:panelGroup>
+                    </div>
+                    <div>
+                        <p:commandButton value="Nazad" immediate="true"
+                                         action="#{administratorController.vratiNazad()}" />
+                        <p:commandButton value="Dodaj igru dana"
+                                         update="igraDana,labelGreska"
+                                         action="#{administratorController.DodajIgruDana()}" />
+                    </div>
+                    <div>
+                        <p:outputLabel id="labelGreska" value="#{administratorController.greska}"/>
+                    </div>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

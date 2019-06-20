@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 31, 2019 8:26:27 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pia.database.Korisnici" table="korisnici" catalog="pia" optimistic-lock="version">
+        <id name="idKorisnik" type="java.lang.Integer">
+            <column name="IdKorisnik" />
+            <generator class="identity" />
+        </id>
+        <property name="ime" type="string">
+            <column name="Ime" length="45" />
+        </property>
+        <property name="prezime" type="string">
+            <column name="Prezime" length="45" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" length="45" not-null="true" unique="true" />
+        </property>
+        <property name="zanimanje" type="string">
+            <column name="Zanimanje" length="45" />
+        </property>
+        <property name="korisnickoIme" type="string">
+            <column name="KorisnickoIme" length="45" not-null="true" unique="true" />
+        </property>
+        <property name="lozinka" type="string">
+            <column name="Lozinka" length="256" not-null="true" />
+        </property>
+        <property name="pol" type="java.lang.Integer">
+            <column name="Pol" />
+        </property>
+        <property name="datumRodenja" type="date">
+            <column name="DatumRodenja" length="10" />
+        </property>
+        <property name="slika" type="string">
+            <column name="Slika" length="70" unique="true" />
+        </property>
+        <property name="privilegija" type="int">
+            <column name="Privilegija" not-null="true">
+                <comment>0 -&gt; obican korisnik; 1 -&gt; supervizor; 2 -&gt; administrator;</comment>
+            </column>
+        </property>
+        <property name="odobren" type="byte">
+            <column name="Odobren" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

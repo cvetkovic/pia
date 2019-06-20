@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="pia"/>
+  <table-filter match-name="spojnice"/>
+  <table-filter match-name="slagalica"/>
+  <table-filter match-name="asocijacija"/>
+  <table-filter match-name="korisnici"/>
+  <table-filter match-name="partija"/>
+  <table-filter match-name="igra_dana"/>
+  <table-filter match-name="spojnice_rec"/>
+  <table-filter match-name="asocijacija_grupa"/>
+  <table-filter match-name="rezultat"/>
+</hibernate-reverse-engineering>

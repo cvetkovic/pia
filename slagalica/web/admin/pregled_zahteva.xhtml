@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <title>Slagalica - pregled registracionih zahteva</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/template.xhtml">
+            <ui:define name="right_content">
+                <h:form id="pregledZahtevaForma">
+                    <div>
+                        <h1 class="title">Pregled registracionih zahteva</h1>
+                    </div>
+                    <div class="centrirano">
+                        <h:panelGrid columns="5" class="pregledZahtevaTabela">
+                            <c:if test="#{administratorController.spisakZahteva.size() == 0}">
+                                  <p:outputLabel>Nema pristiglih zahteva</p:outputLabel>
+                            </c:if>
+                            <c:if test="#{administratorController.spisakZahteva.size() > 0}">
+                                <p:outputLabel>Ime</p:outputLabel>
+                                <p:outputLabel>Prezime</p:outputLabel>
+                                <p:outputLabel>Korisničko ime</p:outputLabel>
+                                <p:outputLabel></p:outputLabel>
+                                <p:outputLabel></p:outputLabel>
+                            </c:if>
+                            <c:forEach items="#{administratorController.spisakZahteva}" var="zahtev">
+                                <p:outputLabel>${zahtev.ime}</p:outputLabel>
+                                <p:outputLabel>${zahtev.prezime}</p:outputLabel>
+                                <p:outputLabel>${zahtev.korisnickoIme}</p:outputLabel>
+                                <p:commandButton value="Odobri"
+                                                 action="#{administratorController.OdobriZahtev(zahtev.idKorisnik)}"/>
+                                <p:commandButton value="Obriši"
+                                                 action="#{administratorController.ObrisiZahtev(zahtev.idKorisnik)}"/>
+                            </c:forEach>
+                        </h:panelGrid>
+                    </div>
+                    <div>
+                        <p:commandButton value="Nazad" immediate="true"
+                                         action="#{administratorController.vratiNazad()}" />
+                    </div>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

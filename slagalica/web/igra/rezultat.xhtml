@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <title>Slagalica - administratorski režim</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/template.xhtml">
+            <ui:define name="right_content">
+                <h:form id="meniForm">
+                    <div>
+                        <h1>Prikaz rezultat završene igre</h1>
+                    </div>
+                    <div class="levoPoravnanje">
+                        <p:panel header="Pregled rezultata igre">
+                            <h:panelGrid columns="3">
+                                <p:outputLabel value="Igra"/>
+                                <p:outputLabel value="Plavi"/>
+                                <p:outputLabel value="Crveni"/>
+                                <c:forEach items="#{rezultatController.prikaz}" var="red">
+                                    <p:outputLabel value="#{red.igra}"/>
+                                    <p:outputLabel value="#{red.plavi}"/>
+                                    <p:outputLabel value="#{red.crveni}"/>
+                                </c:forEach>
+                                <p:outputLabel value="Ukupno:"/>
+                                <p:outputLabel value="#{rezultatController.sumaPlavi}"/>
+                                <p:outputLabel value="#{rezultatController.sumaCrveno}"/>
+                            </h:panelGrid>
+                            <p:commandButton value="Završi pregled"
+                                             action="#{rezultatController.naPocetak()}"/>
+                        </p:panel>
+                    </div>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

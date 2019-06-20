@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <title>Slagalica - nova spojnica</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/template.xhtml">
+            <ui:define name="right_content">
+                <h:form id="novaSpojnicaForma">
+                    <div>
+                        <h1 class="title">Nova spojnica</h1>
+                    </div>
+                    <div>
+                        <h:panelGrid columns="2" class="formTable">
+                            <p:inputText value="#{supervisorController.novaSpojnicaLevo1}" 
+                                         autocomplete="off"
+                                         required="true"/>
+                            <p:inputText value="#{supervisorController.novaSpojnicaDesno1}" 
+                                         autocomplete="off"
+                                         required="true"/>
+                            
+                            <p:inputText value="#{supervisorController.novaSpojnicaLevo2}" 
+                                         autocomplete="off"
+                                         required="true"/>
+                            <p:inputText value="#{supervisorController.novaSpojnicaDesno2}" 
+                                         autocomplete="off"
+                                         required="true"/>
+                            
+                            <p:inputText value="#{supervisorController.novaSpojnicaLevo3}" 
+                                         autocomplete="off"
+                                         required="true"/>
+                            <p:inputText value="#{supervisorController.novaSpojnicaDesno3}" 
+                                         autocomplete="off"
+                                         required="true"/>
+                            
+                            <p:inputText value="#{supervisorController.novaSpojnicaLevo4}" 
+                                         autocomplete="off"
+                                         required="true"/>
+                            <p:inputText value="#{supervisorController.novaSpojnicaDesno4}" 
+                                         autocomplete="off"
+                                         required="true"/>
+                            
+                            <p:inputText value="#{supervisorController.novaSpojnicaLevo5}" 
+                                         autocomplete="off"
+                                         required="true"/>
+                            <p:inputText value="#{supervisorController.novaSpojnicaDesno5}" 
+                                         autocomplete="off"
+                                         required="true"/>
+                            
+                            <p:inputText value="#{supervisorController.novaSpojnicaLevo6}" 
+                                         autocomplete="off"
+                                         required="true"/>
+                            <p:inputText value="#{supervisorController.novaSpojnicaDesno6}" 
+                                         autocomplete="off"
+                                         required="true"/>
+                            
+                            <p:inputText value="#{supervisorController.novaSpojnicaLevo7}" 
+                                         autocomplete="off"
+                                         required="true"/>
+                            <p:inputText value="#{supervisorController.novaSpojnicaDesno7}" 
+                                         autocomplete="off"
+                                         required="true"/>
+                            
+                            <p:inputText value="#{supervisorController.novaSpojnicaLevo8}" 
+                                         autocomplete="off"
+                                         required="true"/>
+                            <p:inputText value="#{supervisorController.novaSpojnicaDesno8}" 
+                                         autocomplete="off"
+                                         required="true"/>
+                            
+                            <p:inputText value="#{supervisorController.novaSpojnicaLevo9}" 
+                                         autocomplete="off"
+                                         required="true"/>
+                            <p:inputText value="#{supervisorController.novaSpojnicaDesno9}" 
+                                         autocomplete="off"
+                                         required="true"/>
+                            
+                            <p:inputText value="#{supervisorController.novaSpojnicaLevo10}" 
+                                         autocomplete="off"
+                                         required="true"/>
+                            <p:inputText value="#{supervisorController.novaSpojnicaDesno10}" 
+                                         autocomplete="off"
+                                         required="true"/>
+                        </h:panelGrid>
+                    </div>
+                    <div class="loginButton">
+                        <div class="greska">
+                            <p:outputLabel value="#{supervisorController.novaSpojnicaGreska}"/>
+                        </div>
+                        <div>
+                            <p:commandButton value="Nazad" immediate="true"
+                                             action="#{supervisorController.vratiNazad()}" />
+                            <p:commandButton value="Dodaj spojnicu" 
+                                             process=":novaSpojnicaForma"
+                                             update=":novaSpojnicaForma"
+                                             action="#{supervisorController.dodajNovuSpojnicu()}" />
+                        </div>
+                    </div>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

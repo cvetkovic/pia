@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <title>Slagalica - supervizorski režim</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/template.xhtml">
+            <ui:define name="right_content">
+                <div>
+                    <h1>Supervizorski režim</h1>
+                </div>
+                <div class="levoPoravnanje">
+                    <p>Izaberite radnju:</p>
+                    <ul>
+                        <li>
+                            <h:link outcome="nova_slagalica">Nova slagalica</h:link>
+                        </li>
+                        <li>
+                            <h:link outcome="nova_spojnica">Nova spojnica</h:link>
+                        </li>
+                        <li>
+                            <h:link outcome="nova_asocijacija">Nova asocijacija</h:link>
+                        </li>
+                    </ul>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

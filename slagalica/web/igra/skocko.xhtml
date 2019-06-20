@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <title>Slagalica</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/template.xhtml">
+            <ui:define name="right_content">
+                <h:form>
+                    <div>
+                        <h1 class="naslovIgre">Skočko</h1>
+                    </div>
+                    <div class="centralnoPoravnanje">
+                        <p:outputLabel id="ostaloVreme" styleClass="ponudenjaSlova">Preostalo vreme: #{skockoController.preostaloVreme}</p:outputLabel>
+                        <br/>
+                        <h:commandLink>
+                            <p:ajax event="click" update="skockoPanel" listener="#{skockoController.simbolListener(0)}"/>
+                            <p:graphicImage value="#{resource['images/skocko.png']}"/>
+                        </h:commandLink>
+                        <h:commandLink>
+                            <p:ajax event="click" update="skockoPanel" listener="#{skockoController.simbolListener(1)}"/>
+                            <p:graphicImage value="#{resource['images/tref.png']}"/>
+                        </h:commandLink>
+                        <h:commandLink>
+                            <p:ajax event="click" update="skockoPanel" listener="#{skockoController.simbolListener(2)}"/>
+                            <p:graphicImage value="#{resource['images/pik.png']}"/>
+                        </h:commandLink>
+                        <h:commandLink>
+                            <p:ajax event="click" update="skockoPanel" listener="#{skockoController.simbolListener(3)}"/>
+                            <p:graphicImage value="#{resource['images/karo.png']}"/>
+                        </h:commandLink>
+                        <h:commandLink>
+                            <p:ajax event="click" update="skockoPanel" listener="#{skockoController.simbolListener(4)}"/>
+                            <p:graphicImage value="#{resource['images/herc.png']}"/>
+                        </h:commandLink>
+                        <h:commandLink>
+                            <p:ajax event="click" update="skockoPanel" listener="#{skockoController.simbolListener(5)}"/>
+                            <p:graphicImage value="#{resource['images/zvezda.png']}"/>
+                        </h:commandLink>
+                        <br/>
+                        <h:panelGrid id="skockoPanel" columns="9" styleClass="skockoTabela">
+                            <c:forEach items="#{skockoController.skocka}" var="skocko" varStatus="loop">
+                                <h:commandLink>
+                                    <p:ajax event="click" update="skockoPanel" listener="#{skockoController.obrisiSimbol(skocko, 0)}"/>
+                                    <p:graphicImage value="#{resource[gameController.ZnakToSlika(skocko.znak1)]}" styleClass="slikaSkocko"/>
+                                </h:commandLink>
+                                <h:commandLink>
+                                    <p:ajax event="click" update="skockoPanel" listener="#{skockoController.obrisiSimbol(skocko, 1)}"/>
+                                    <p:graphicImage value="#{resource[gameController.ZnakToSlika(skocko.znak2)]}" styleClass="slikaSkocko"/>
+                                </h:commandLink>
+                                <h:commandLink>
+                                    <p:ajax event="click" update="skockoPanel" listener="#{skockoController.obrisiSimbol(skocko, 2)}"/>
+                                    <p:graphicImage value="#{resource[gameController.ZnakToSlika(skocko.znak3)]}" styleClass="slikaSkocko"/>
+                                </h:commandLink>
+                                <h:commandLink>
+                                    <p:ajax event="click" update="skockoPanel" listener="#{skockoController.obrisiSimbol(skocko, 3)}"/>
+                                    <p:graphicImage value="#{resource[gameController.ZnakToSlika(skocko.znak4)]}" styleClass="slikaSkocko"/>
+                                </h:commandLink>
+                                <h:panelGroup class="skockoSeparator" 
+                                              rendered="#{!skockoController.potvrdaRendered(0)}"/>
+                                <p:commandButton value="Potvrdi"
+                                                 styleClass="skockoSeparator"
+                                                 rendered="#{skockoController.potvrdaRendered(0)}"
+                                                 update="skockoPanel" 
+                                                 action="#{skockoController.potvrdiSkocka(skocko)}"/>
+                                <p:graphicImage value="#{resource[gameController.ResenjeToSlika(skocko.rezultat1)]}" styleClass="slikaSkocko"/>
+                                <p:graphicImage value="#{resource[gameController.ResenjeToSlika(skocko.rezultat2)]}" styleClass="slikaSkocko"/>
+                                <p:graphicImage value="#{resource[gameController.ResenjeToSlika(skocko.rezultat3)]}" styleClass="slikaSkocko"/>
+                                <p:graphicImage value="#{resource[gameController.ResenjeToSlika(skocko.rezultat4)]}" styleClass="slikaSkocko"/>
+                            </c:forEach>
+                        </h:panelGrid>
+                        <p>Protivnik:</p>
+                        <br/>
+                        <h:panelGrid columns="9" id="protivnikPanel">
+                            <h:commandLink>
+                                <p:ajax event="click" update="skockoPanel" listener="#{skockoController.obrisiSimbol(skockoController.protivnikDaProba, 0)}"/>
+                                <p:graphicImage value="#{resource[gameController.ZnakToSlika(skockoController.protivnikDaProba.znak1)]}" styleClass="slikaSkocko"/>
+                            </h:commandLink>
+                            <h:commandLink>
+                                <p:ajax event="click" update="skockoPanel" listener="#{skockoController.obrisiSimbol(skockoController.protivnikDaProba, 1)}"/>
+                                <p:graphicImage value="#{resource[gameController.ZnakToSlika(skockoController.protivnikDaProba.znak2)]}" styleClass="slikaSkocko"/>
+                            </h:commandLink>
+                            <h:commandLink>
+                                <p:ajax event="click" update="skockoPanel" listener="#{skockoController.obrisiSimbol(skockoController.protivnikDaProba, 2)}"/>
+                                <p:graphicImage value="#{resource[gameController.ZnakToSlika(skockoController.protivnikDaProba.znak3)]}" styleClass="slikaSkocko"/>
+                            </h:commandLink>
+                            <h:commandLink>
+                                <p:ajax event="click" update="skockoPanel" listener="#{skockoController.obrisiSimbol(skockoController.protivnikDaProba, 3)}"/>
+                                <p:graphicImage value="#{resource[gameController.ZnakToSlika(skockoController.protivnikDaProba.znak4)]}" styleClass="slikaSkocko"/>
+                            </h:commandLink>
+                            <h:panelGroup class="skockoSeparator" 
+                                          rendered="#{!skockoController.potvrdaRendered(1)}"/>
+                            <p:commandButton value="Potvrdi"
+                                             styleClass="skockoSeparator"
+                                             rendered="#{skockoController.potvrdaRendered(1)}"
+                                             update="skockoPanel" 
+                                             action="#{skockoController.potvrdiSkocka(skockoController.protivnikDaProba)}"/>
+                            <p:graphicImage value="#{resource[gameController.ResenjeToSlika(skockoController.protivnikDaProba.rezultat1)]}" styleClass="slikaSkocko"/>
+                            <p:graphicImage value="#{resource[gameController.ResenjeToSlika(skockoController.protivnikDaProba.rezultat2)]}" styleClass="slikaSkocko"/>
+                            <p:graphicImage value="#{resource[gameController.ResenjeToSlika(skockoController.protivnikDaProba.rezultat3)]}" styleClass="slikaSkocko"/>
+                            <p:graphicImage value="#{resource[gameController.ResenjeToSlika(skockoController.protivnikDaProba.rezultat4)]}" styleClass="slikaSkocko"/>
+                        </h:panelGrid>
+                        <!-- za nastavljanje dalje -->
+                        <p:poll interval="1"
+                                update="skockoPanel,protivnikPanel,ostaloVreme"
+                                listener="#{skockoController.tajmerListener}"/>
+                    </div>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

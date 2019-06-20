@@ -1,0 +1,9 @@
+- mysql-connector-java-8.0.16.jar
+https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-8.0.16.zip
+
+- primefaces-6.0.jar
+http://search.maven.org/remotecontent?filepath=org/primefaces/primefaces/6.0/primefaces-6.0.jar
+
+- Hibernate 4.3.x -> ubacuje se iz NetBeans-a
+https://sourceforge.net/projects/hibernate/files/hibernate4/4.3.11.Final/hibernate-release-4.3.11.Final.zip/download
+https://netix.dl.sourceforge.net/project/hibernate/hibernate4/4.3.11.Final/hibernate-release-4.3.11.Final.zip

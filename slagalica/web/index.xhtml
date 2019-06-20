@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="right_content">
+            <h:form>
+                <p:panel header="Pregled statistike igrača u tekućoj nedelji">
+                    <h:dataTable rowClasses="red1, red2"
+                                 columnClasses="prvaKolonaStatistika,drugaKolonaStatistika,trecaKolonaStatistika"
+                                 value="#{statistikaController.nedeljnaStatistika}"
+                                 var="unos">
+                        <h:column>
+                            <f:facet name="header">
+                                #
+                            </f:facet>
+                            #{unos.redniBroj}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                Ime i prezime
+                            </f:facet>
+                            #{unos.imePrezime}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                Broj poena
+                            </f:facet>
+                            #{unos.crveni}
+                        </h:column>
+                    </h:dataTable>
+                </p:panel>
+                <p:panel header="Pregled statistike najboljih igrača u tekućem mesecu">
+                    <h:dataTable rowClasses="red1, red2"
+                                 columnClasses="prvaKolonaStatistika,drugaKolonaStatistika,trecaKolonaStatistika"
+                                 value="#{statistikaController.mesecnaStatistika}"
+                                 var="unos">
+                        <h:column>
+                            <f:facet name="header">
+                                #
+                            </f:facet>
+                            #{unos.redniBroj}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                Ime i prezime
+                            </f:facet>
+                            #{unos.imePrezime}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                Broj poena
+                            </f:facet>
+                            #{unos.crveni}
+                        </h:column>
+                    </h:dataTable>
+                </p:panel>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>

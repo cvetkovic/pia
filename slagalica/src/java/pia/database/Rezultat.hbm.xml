@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 31, 2019 8:26:27 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pia.database.Rezultat" table="rezultat" catalog="pia" optimistic-lock="version">
+        <id name="idRezultat" type="int">
+            <column name="IdRezultat" />
+            <generator class="assigned" />
+        </id>
+        <property name="idPartija" type="int">
+            <column name="IdPartija" not-null="true" />
+        </property>
+        <property name="igra" type="int">
+            <column name="Igra" not-null="true" />
+        </property>
+        <property name="poenaPlavi" type="int">
+            <column name="PoenaPlavi" not-null="true" />
+        </property>
+        <property name="poenaCrveni" type="int">
+            <column name="PoenaCrveni" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

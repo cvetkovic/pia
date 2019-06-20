@@ -1,0 +1,264 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <title>Slagalica - nova asocijacija</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/template.xhtml">
+            <ui:define name="right_content">
+                <h:form id="novaAsocijacijaForma">
+                    <div>
+                        <h1 class="title">Nova asocijacija</h1>
+                    </div>
+                    <div>
+                        <table>
+                            <tr>
+                                <td class="asocijacijaPrvaKolona">
+                                    <p:inputText id="novaAsocijacijaA1" 
+                                                 value="#{supervisorController.novaAsocijacijaA1}" 
+                                                 autocomplete="off"
+                                                 required="true">
+                                        <f:validateRegex pattern="^[a-zšđčćžA-ZŠĐČĆŽ0-9]+ {0,}[a-zšđčćžA-ZŠĐČĆŽ0-9 ]*$"/>
+                                    </p:inputText>
+                                </td>
+                                <td class="asocijacijaDrugaKolona">
+                                    <!-- prazno -->
+                                </td>
+                                <td class="asocijacijaTrecaKolona">
+                                    <p:inputText id="novaAsocijacijaB1" 
+                                                 value="#{supervisorController.novaAsocijacijaB1}" 
+                                                 autocomplete="off"
+                                                 required="true">
+                                        <f:validateRegex pattern="^[a-zšđčćžA-ZŠĐČĆŽ0-9]+ {0,}[a-zšđčćžA-ZŠĐČĆŽ0-9 ]*$"/>
+                                    </p:inputText>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="asocijacijaPrvaKolona">
+                                    <p:inputText id="novaAsocijacijaA2" 
+                                                 value="#{supervisorController.novaAsocijacijaA2}" 
+                                                 autocomplete="off"
+                                                 required="true">
+                                        <f:validateRegex pattern="^[a-zšđčćžA-ZŠĐČĆŽ0-9]+ {0,}[a-zšđčćžA-ZŠĐČĆŽ0-9 ]*$"/>
+                                    </p:inputText>
+                                </td>
+                                <td class="asocijacijaDrugaKolona">
+                                    <!-- prazno -->
+                                </td>
+                                <td class="asocijacijaTrecaKolona">
+                                    <p:inputText id="novaAsocijacijaB2" 
+                                                 value="#{supervisorController.novaAsocijacijaB2}" 
+                                                 autocomplete="off"
+                                                 required="true">
+                                        <f:validateRegex pattern="^[a-zšđčćžA-ZŠĐČĆŽ0-9]+ {0,}[a-zšđčćžA-ZŠĐČĆŽ0-9 ]*$"/>
+                                    </p:inputText>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="asocijacijaPrvaKolona">
+                                    <p:inputText id="novaAsocijacijaA3" 
+                                                 value="#{supervisorController.novaAsocijacijaA3}" 
+                                                 autocomplete="off"
+                                                 required="true">
+                                        <f:validateRegex pattern="^[a-zšđčćžA-ZŠĐČĆŽ0-9]+ {0,}[a-zšđčćžA-ZŠĐČĆŽ0-9 ]*$"/>
+                                    </p:inputText>
+                                </td>
+                                <td class="asocijacijaDrugaKolona">
+                                    <!-- prazno -->
+                                </td>
+                                <td class="asocijacijaTrecaKolona">
+                                    <p:inputText id="novaAsocijacijaB3" 
+                                                 value="#{supervisorController.novaAsocijacijaB3}" 
+                                                 autocomplete="off"
+                                                 required="true">
+                                        <f:validateRegex pattern="^[a-zšđčćžA-ZŠĐČĆŽ0-9]+ {0,}[a-zšđčćžA-ZŠĐČĆŽ0-9 ]*$"/>
+                                    </p:inputText>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="asocijacijaPrvaKolona">
+                                    <p:inputText id="novaAsocijacijaA4" 
+                                                 value="#{supervisorController.novaAsocijacijaA4}" 
+                                                 autocomplete="off"
+                                                 required="true">
+                                        <f:validateRegex pattern="^[a-zšđčćžA-ZŠĐČĆŽ0-9]+ {0,}[a-zšđčćžA-ZŠĐČĆŽ0-9 ]*$"/>
+                                    </p:inputText>
+                                </td>
+                                <td class="asocijacijaDrugaKolona">
+                                    <!-- prazno -->
+                                </td>
+                                <td class="asocijacijaTrecaKolona">
+                                    <p:inputText id="novaAsocijacijaB4" 
+                                                 value="#{supervisorController.novaAsocijacijaB4}" 
+                                                 autocomplete="off"
+                                                 required="true">
+                                        <f:validateRegex pattern="^[a-zšđčćžA-ZŠĐČĆŽ0-9]+ {0,}[a-zšđčćžA-ZŠĐČĆŽ0-9 ]*$"/>
+                                    </p:inputText>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="asocijacijaPrvaKolona">
+                                    <p:inputText id="novaAsocijacijaAResenje" 
+                                                 styleClass="resenjePodgrupe"
+                                                 value="#{supervisorController.novaAsocijacijaAResenje}" 
+                                                 autocomplete="off"
+                                                 required="true">
+                                        <f:validateRegex pattern="^[a-zšđčćžA-ZŠĐČĆŽ0-9]+ {0,}[a-zšđčćžA-ZŠĐČĆŽ0-9 ]+(,\s*[a-zšđčćžA-ZŠĐČĆŽ0-9]+ {0,}[a-zšđčćžA-ZŠĐČĆŽ0-9 ]*)*$"/>
+                                    </p:inputText>
+                                </td>
+                                <td class="asocijacijaDrugaKolona">
+                                    <!-- prazno -->
+                                </td>
+                                <td class="asocijacijaTrecaKolona">
+                                    <p:inputText id="novaAsocijacijaBResenje" 
+                                                 styleClass="resenjePodgrupe"
+                                                 value="#{supervisorController.novaAsocijacijaBResenje}" 
+                                                 autocomplete="off"
+                                                 required="true">
+                                        <f:validateRegex pattern="^[a-zšđčćžA-ZŠĐČĆŽ0-9]+ {0,}[a-zšđčćžA-ZŠĐČĆŽ0-9 ]+(,\s*[a-zšđčćžA-ZŠĐČĆŽ0-9]+ {0,}[a-zšđčćžA-ZŠĐČĆŽ0-9 ]*)*$"/>
+                                    </p:inputText>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <p:inputText id="novaAsocijacijaKonacnoResenje" 
+                                                 value="#{supervisorController.novaAsocijacijaKonacnoResenje}" 
+                                                 autocomplete="off"
+                                                 required="true">
+                                        <f:validateRegex pattern="^[a-zšđčćžA-ZŠĐČĆŽ0-9]+ {0,}[a-zšđčćžA-ZŠĐČĆŽ0-9 ]+(,\s*[a-zšđčćžA-ZŠĐČĆŽ0-9]+ {0,}[a-zšđčćžA-ZŠĐČĆŽ0-9 ]*)*$"/>
+                                    </p:inputText>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="asocijacijaPrvaKolona">
+                                    <p:inputText id="novaAsocijacijaCResenje" 
+                                                 styleClass="resenjePodgrupe"
+                                                 value="#{supervisorController.novaAsocijacijaCResenje}" 
+                                                 autocomplete="off"
+                                                 required="true">
+                                        <f:validateRegex pattern="^[a-zšđčćžA-ZŠĐČĆŽ0-9]+ {0,}[a-zšđčćžA-ZŠĐČĆŽ0-9 ]+(,\s*[a-zšđčćžA-ZŠĐČĆŽ0-9]+ {0,}[a-zšđčćžA-ZŠĐČĆŽ0-9 ]*)*$"/>
+                                    </p:inputText>
+                                </td>
+                                <td class="asocijacijaDrugaKolona">
+                                    <!-- prazno -->
+                                </td>
+                                <td class="asocijacijaTrecaKolona">
+                                    <p:inputText id="novaAsocijacijaDResenje" 
+                                                 styleClass="resenjePodgrupe"
+                                                 value="#{supervisorController.novaAsocijacijaDResenje}" 
+                                                 autocomplete="off"
+                                                 required="true">
+                                        <f:validateRegex pattern="^[a-zšđčćžA-ZŠĐČĆŽ0-9]+ {0,}[a-zšđčćžA-ZŠĐČĆŽ0-9 ]+(,\s*[a-zšđčćžA-ZŠĐČĆŽ0-9]+ {0,}[a-zšđčćžA-ZŠĐČĆŽ0-9 ]*)*$"/>
+                                    </p:inputText>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="asocijacijaPrvaKolona">
+                                    <p:inputText id="novaAsocijacijaC1" 
+                                                 value="#{supervisorController.novaAsocijacijaC1}" 
+                                                 autocomplete="off"
+                                                 required="true">
+                                        <f:validateRegex pattern="^[a-zšđčćžA-ZŠĐČĆŽ0-9]+ {0,}[a-zšđčćžA-ZŠĐČĆŽ0-9 ]*$"/>
+                                    </p:inputText>
+                                </td>
+                                <td class="asocijacijaDrugaKolona">
+                                    <!-- prazno -->
+                                </td>
+                                <td class="asocijacijaTrecaKolona">
+                                    <p:inputText id="novaAsocijacijaD1" 
+                                                 value="#{supervisorController.novaAsocijacijaD1}" 
+                                                 autocomplete="off"
+                                                 required="true">
+                                        <f:validateRegex pattern="^[a-zšđčćžA-ZŠĐČĆŽ0-9]+ {0,}[a-zšđčćžA-ZŠĐČĆŽ0-9 ]*$"/>
+                                    </p:inputText>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="asocijacijaPrvaKolona">
+                                    <p:inputText id="novaAsocijacijaC2" 
+                                                 value="#{supervisorController.novaAsocijacijaC2}" 
+                                                 autocomplete="off"
+                                                 required="true">
+                                        <f:validateRegex pattern="^[a-zšđčćžA-ZŠĐČĆŽ0-9]+ {0,}[a-zšđčćžA-ZŠĐČĆŽ0-9 ]*$"/>
+                                    </p:inputText>
+                                </td>
+                                <td class="asocijacijaDrugaKolona">
+                                    <!-- prazno -->
+                                </td>
+                                <td class="asocijacijaTrecaKolona">
+                                    <p:inputText id="novaAsocijacijaD2" 
+                                                 value="#{supervisorController.novaAsocijacijaD2}" 
+                                                 autocomplete="off"
+                                                 required="true">
+                                        <f:validateRegex pattern="^[a-zšđčćžA-ZŠĐČĆŽ0-9]+ {0,}[a-zšđčćžA-ZŠĐČĆŽ0-9 ]*$"/>
+                                    </p:inputText>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="asocijacijaPrvaKolona">
+                                    <p:inputText id="novaAsocijacijaC3" 
+                                                 value="#{supervisorController.novaAsocijacijaC3}" 
+                                                 autocomplete="off"
+                                                 required="true">
+                                        <f:validateRegex pattern="^[a-zšđčćžA-ZŠĐČĆŽ0-9]+ {0,}[a-zšđčćžA-ZŠĐČĆŽ0-9 ]*$"/>
+                                    </p:inputText>
+                                </td>
+                                <td class="asocijacijaDrugaKolona">
+                                    <!-- prazno -->
+                                </td>
+                                <td class="asocijacijaTrecaKolona">
+                                    <p:inputText id="novaAsocijacijaD3" 
+                                                 value="#{supervisorController.novaAsocijacijaD3}" 
+                                                 autocomplete="off"
+                                                 required="true">
+                                        <f:validateRegex pattern="^[a-zšđčćžA-ZŠĐČĆŽ0-9]+ {0,}[a-zšđčćžA-ZŠĐČĆŽ0-9 ]*$"/>
+                                    </p:inputText>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="asocijacijaPrvaKolona">
+                                    <p:inputText id="novaAsocijacijaC4" 
+                                                 value="#{supervisorController.novaAsocijacijaC4}" 
+                                                 autocomplete="off"
+                                                 required="true">
+                                        <f:validateRegex pattern="^[a-zšđčćžA-ZŠĐČĆŽ0-9]+ {0,}[a-zšđčćžA-ZŠĐČĆŽ0-9 ]*$"/>
+                                    </p:inputText>
+                                </td>
+                                <td class="asocijacijaDrugaKolona">
+                                    <!-- prazno -->
+                                </td>
+                                <td class="asocijacijaTrecaKolona">
+                                    <p:inputText id="novaAsocijacijaD4" 
+                                                 value="#{supervisorController.novaAsocijacijaD4}" 
+                                                 autocomplete="off"
+                                                 required="true">
+                                        <f:validateRegex pattern="^[a-zšđčćžA-ZŠĐČĆŽ0-9]+ {0,}[a-zšđčćžA-ZŠĐČĆŽ0-9 ]*$"/>
+                                    </p:inputText>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="loginButton">
+                        <div class="greska">
+                            <p:outputLabel value="#{supervisorController.novaAsocijacijaGreska}"/>
+                        </div>
+                        <div>
+                            <p:commandButton value="Nazad" immediate="true"
+                                             action="#{supervisorController.vratiNazad()}" />
+                            <p:commandButton value="Dodaj asocijaciju" 
+                                             process=":novaAsocijacijaForma"
+                                             update=":novaAsocijacijaForma"
+                                             action="#{supervisorController.dodajNovuAsocijaciju()}" />
+                        </div>
+                    </div>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

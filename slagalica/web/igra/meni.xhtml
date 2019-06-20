@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <title>Slagalica - administratorski režim</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/template.xhtml">
+            <ui:define name="right_content">
+                <h:form id="meniForm">
+                    <div>
+                        <h1>Slagalica</h1>
+                    </div>
+                    <div class="levoPoravnanje">
+                        <ul style="list-style-type: none; margin: 0px;">
+                            <li>
+                                <p:panel id="novaPartijaPanel">
+                                    <h:panelGrid columns="1">
+                                        <p:commandButton action="#{korisnikController.NapraviPartiju(false)}"
+                                                         value="Napravi novu partiju">
+                                            <f:ajax render=":novaPartijaPanel"/>
+                                        </p:commandButton>
+                                        <p:outputLabel id="novaIgraPoruka">#{korisnikController.poruka}</p:outputLabel>
+                                    </h:panelGrid>
+                                </p:panel>
+                                <p:poll interval="1"
+                                        listener="#{korisnikController.cekajDrugogIgraca}"
+                                        update="novaPartijaPanel"/>
+                            </li>
+                            <li>
+                                <p:panel header="Priključi se na napravljenu partiju" id="poljaZaPrikljucivanje">
+                                    <h:panelGrid columns="3">
+                                        <p>Izaberi plavog igrača:</p>
+                                        <p:selectOneMenu id="izborPartije" value="#{korisnikController.izabranaPartija}">
+                                            <f:selectItem itemLabel="Izaberite..." itemValue="-1" noSelectionOption="true" />
+                                            <c:forEach items="#{korisnikController.spisakPartija}" var="partija">
+                                                <f:selectItem itemLabel="#{partija.plaviTakmicar}" itemValue="#{partija.idPartija}"/>
+                                            </c:forEach>
+                                        </p:selectOneMenu>
+                                        <p:commandButton value="Osveži"
+                                                         update="poljaZaPrikljucivanje"
+                                                         action="#{korisnikController.izborPartije}"/>
+                                        <p:commandButton id="dodajDrugogIgraca"
+                                                         action="#{korisnikController.dugmeDodajDrugogIgraca()}"
+                                                         value="Započni igru"/>
+                                        <!--<p:poll interval="1"
+                                                listener="{korisnikController.izborPartije}"
+                                                async="true"
+                                                update="poljaZaPrikljucivanje"/>-->
+                                    </h:panelGrid>
+                                </p:panel>
+                            </li>
+                            <li>
+                                <p:panel>
+                                    <p:commandButton update="novaPartijaPanel,novaIgraPoruka,statusIgraDana" 
+                                                     action="#{korisnikController.NapraviPartiju(true)}" 
+                                                     value="Odigraj igru dana"/>
+                                    <br/>
+                                    <p:outputLabel id="statusIgraDana">#{korisnikController.igraDanaStatus}</p:outputLabel>
+                                </p:panel>
+                            </li>
+                            <li>
+                                <p:panel header="Pregled rezultata igre današnjega dana">
+
+                                    <h:dataTable columnClasses="prvaKolonaStatistika,drugaKolonaStatistika,prvaKolonaStatistika"
+                                                 rowClasses="red1,red2"
+                                                 value="#{korisnikController.statistikaDana}"
+                                                 var="loop">
+
+                                        <h:column>
+                                            <f:facet name="header">
+                                                #
+                                            </f:facet>
+                                            #{loop.redniBroj}
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                Ime i prezime
+                                            </f:facet>
+                                            #{loop.imePrezime}
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                Crveni
+                                            </f:facet>
+                                            #{loop.brojPoena}
+                                        </h:column>
+
+                                    </h:dataTable>
+                                </p:panel>
+                            </li>
+                            <li>
+                                <p:panel header="Pregled rezultata igara igranih protiv drugih igrača u poslednjih 10 dana">
+                                    <h:dataTable columnClasses="prvaKolonaStatistika,drugaKolonaStatistika,prvaKolonaStatistika,prvaKolonaStatistika"
+                                                 rowClasses="red1,red2"
+                                                 value="#{korisnikController.statistikaProtivDrugih}"
+                                                 var="loop">
+
+                                        <h:column>
+                                            <f:facet name="header">
+                                                #
+                                            </f:facet>
+                                            #{loop.redniBroj}
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                Ime i prezime
+                                            </f:facet>
+                                            #{loop.imePrezime}
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                Plavi
+                                            </f:facet>
+                                            #{loop.plavi}
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                Crveni
+                                            </f:facet>
+                                            #{loop.crveni}
+                                        </h:column>
+                                    </h:dataTable>
+                                </p:panel>
+                            </li>
+                        </ul>
+                    </div>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 31, 2019 8:26:27 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pia.database.IgraDana" table="igra_dana" catalog="pia" optimistic-lock="version">
+        <id name="idIgraDana" type="int">
+            <column name="IdIgraDana" />
+            <generator class="assigned" />
+        </id>
+        <property name="slagalica" type="string">
+            <column name="Slagalica" length="24" not-null="true" />
+        </property>
+        <property name="mojBroj" type="string">
+            <column name="MojBroj" length="100" not-null="true" />
+        </property>
+        <property name="skocko" type="int">
+            <column name="Skocko" not-null="true" />
+        </property>
+        <property name="idSpojnica" type="int">
+            <column name="IdSpojnica" not-null="true" />
+        </property>
+        <property name="idAsocijacija" type="int">
+            <column name="IdAsocijacija" not-null="true" />
+        </property>
+        <property name="datum" type="timestamp">
+            <column name="Datum" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>
