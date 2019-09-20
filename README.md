@@ -1,4 +1,3 @@
-# pia
-Programiranje Internet aplikacija
+# Internet Application Programming - JSF/MySQL/Hibernate
 
 All user password are: Slagalica12#
